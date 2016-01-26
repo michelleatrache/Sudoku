@@ -22,19 +22,11 @@ int main(){
 
 			cout << "Row: " << r << " Column: " << c << endl;
 
-		/*	string in;
-
-			cin >> in;
-
-			int num;
-			istringstream ss(in);
-			ss >> num;*/
-
 			int num;
 			cin >> num;
 			
 			if(num != -1){
-
+				b->board[r-1, c-1] = num;
 				cout << "r: " << r << endl;
 				cout << "c: " << c << endl;
 				cout << "num: " << num << endl;
