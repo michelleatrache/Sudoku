@@ -14,6 +14,7 @@ public:
 	void addBlock(int row, int col, int num);  // add num to block at row/col
 	void removeBlock(int row, int col);  // remove a number from row/col
 	void drawBoard(); // draws the vBoard when called
+	void isWon(); // returns true if the board has been won, false otherwise
 	~Board(); // dtor
 
 

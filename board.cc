@@ -63,9 +63,83 @@ Board::Board(){
 }
 
 
+// if rowIndex = -1, then we're checking the entire row at the column index of colIndex
+// if colIndex = -1, then we're checking the entire column at the row index of rowIndex
+bool checkLine(Board *b, int rowIndex, int colIndex){
+
+	bool numCheck[9];
+	for(int i = 0; i < 9; i++){
+		// set all indexes to false initially. change to true if this number is encountered when traversing the line
+		numCheck[i] = false;
+	}
+
+
+	if(rowIndex == -1){
+		for(int j = 0; j < 9; j++){
+			// access at b->board[rowIndex, j]
+			int ind = b->board[rowIndex, j];
+
+			if(ind == -1){
+				// then this square is empty (no number placed)
+				return false;
+			}
+			else if(numCheck[ind]){
+				// then the number ind is present in the line more than once
+				return false;
+			}
+			else{
+				numCheck[ind] = true;
+			}
+		}
+	}
+	else{
+		for(int i = 0; i < 9; i++){
+			// access at b->board[i, rowIndex]
+			int ind = b->board[i, rowIndex];
+
+			if(ind == -1){
+				// then this square is empty (no number placed)
+				return false;
+			}
+			else if(numCheck[ind]){
+				// then the number ind is present in the line more than once
+				return false;
+			}
+			else{
+				numCheck[ind] = true;
+			}
+		}
+	}
+
+	// if reached here, this line is valid and completed
+	return true;
+}
+
+
+// returns true if Sudoku board has been won, false otherwise
+bool Board::isWon(){
+	// need to check all 9 rows, all 9 columns, and all 9 3x3 boxes
+
+
+	// check all 9 rows
+	for(int i = 0; i < 9; i++){
+		if(!checkWin(this, i, -1)) return false;
+	}
+
+
+	// check all 9 columns
+	for(int j = 0; j < 9; j++){
+		if(!checkWin(this, -1, j)) return false;
+	}
+
+
+	// TODO: check all 9 3x3 boxes
+
+}
 
 
 
+// add num to vBoard at row and col
 void Board::addBlock(int row, int col, int num){
 
 	char cNum = '0' + num;
@@ -101,6 +175,7 @@ void Board::addBlock(int row, int col, int num){
 }
 
 
+// remove the current number from vBoard at row and col
 void Board::removeBlock(int row, int col){
 
 	switch(row){
@@ -135,6 +210,7 @@ void Board::removeBlock(int row, int col){
 }
 
 
+// draws the vBoard to the screen
 void Board::drawBoard(){
 	for(int i = 0; i < 19; i++){
 		cout << this->vBoard[i] << endl;
