@@ -62,6 +62,17 @@ Board::Board(){
 
 }
 
+// adds num to row and col in the board. If the add is successful, return true
+// if the add is not successful due to an incorrect num being entered or already having that 
+// num present in a line
+bool Board::addNum(int row, int col, int num){
+
+	if((num < 0) || (num > 9)){
+		// num is out of bounds (not in range of 0-9 inclusive)
+		return false;
+	}
+}
+
 
 // if rowIndex = -1, then we're checking the entire row at the column index of colIndex
 // if colIndex = -1, then we're checking the entire column at the row index of rowIndex
@@ -134,6 +145,15 @@ bool Board::isWon(){
 
 
 	// TODO: check all 9 3x3 boxes
+	// TODO: construct a new Board with boxes as lines and call checkWin() for each line
+
+	// allocate on the stack
+	Board temp;
+
+
+
+	// reached here if all lines in the board are completed and correct
+	return true;
 
 }
 

@@ -16,6 +16,7 @@ int main(){
 
 	b->drawBoard();
 
+	// opts user to initialize the board
 	for(int r = 1; r <= 9; r++){
 		for(int c = 1; c <= 9; c++){
 			b->drawBoard();
@@ -34,5 +35,9 @@ int main(){
 			}
 		}
 	}
+
+
+	// now board has been initialized
+	// TODO: prompt for adding new numbers to board
 
 }
