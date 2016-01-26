@@ -9,8 +9,10 @@ using namespace std;
 Board::Board(){
 
 
-	for(int i = 0; i < 81; i++){
-		board[i] = -1; // all indexes set to -1 to represent that they are empty (no number inserted yet)
+	for(int i = 0; i < 9; i++){
+		for(int j = 0; j < 9; j++){
+			board[i][j] = -1; // all indexes set to -1 to represent that they are empty (no number inserted yet)
+		}
 	}
 
 

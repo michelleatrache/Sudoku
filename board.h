@@ -8,7 +8,7 @@ class Board{
 public:
 	Board(); // ctor 
 
-	int board[81]; // holds all values for the board (accessed as 2D array)
+	int board[9][9]; // 2D array holds all values for the board
 
 	std::string vBoard[19]; // visual board or suduko board
 	void addBlock(int row, int col, int num);  // add num to block at row/col
